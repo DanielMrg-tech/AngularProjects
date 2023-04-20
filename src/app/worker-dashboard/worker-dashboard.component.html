@@ -1,0 +1,74 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1>Angular Worker List</h1>
+        <div class="d-flex">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add Worker</button>
+        </div>
+    </div>
+</nav>
+
+<table class="table mt-3">
+    <thead>
+        <tr *ngFor="let row of workerData">
+            <td>{{row.nameTask}}</td>
+            <td>{{row.month}}</td>
+            <td>{{row.theDay}}</td>
+            <td>{{row.theHour}}</td>
+            <td>{{row.theTime}}</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Activity</td>
+            <td>June</td>
+            <td>Tuesday</td>
+            <td>15:00</td>
+            <td>5 days</td>
+            <td>
+                <button  style="color: aliceblue" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>
+                <button  class="btn btn-danger mx-3">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Worker Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Name task</label>
+                  <input type="text" formControlName="nameTask" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Month</label>
+                  <input type="text" formControlName="month" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">The day</label>
+                    <input type="text" formControlName="theDay" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">The hour</label>
+                    <input type="text" formControlName="theHour" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">The time</label>
+                    <input type="text" formControlName="theTime" class="form-control" id="exampleInputPassword1">
+                  </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" (click)="postWorkerDetails()" class="btn btn-primary">Add</button>
+          <button type="button" (click)="addImageWorkerDetails()" class="btn btn-primary">Add Image</button>
+        </div>
+      </div>
+    </div>
+  </div>
